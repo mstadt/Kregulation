@@ -5,7 +5,7 @@ pars = set_params();
 
 %heat map preparation
 xvalues = {'V_{max}','K_{m}','Phi_{dtKsec eq}','A_{dtKsec}','B_{dtKsec}','Phi_{cdKsec eq}','A_{cdKsec}','B_{cdKsec}','A_{cdKreab}','B_{cdKreab}'};
-yvalues = {'K_{plasma}','K_{muscle}'};
+yvalues = {'K_{plasma}','K_{IC}'};
 cdata = zeros(length(yvalues),length(xvalues));
 
 Kin.Kin_type = 'gut_Kin3';
@@ -93,13 +93,13 @@ pars = set_params();
 
 % round cdata values
 cdata_round =  round(cdata,3,"significant");
-figure
-h = heatmap(xvalues,yvalues,cdata);
+%figure
+%h = heatmap(xvalues,yvalues,cdata);
 figure
 h_round = heatmap(xvalues,yvalues,cdata_round);
 
 function p_diff = percent_difference(original_value,perturbed_value)
-p_diff = (perturbed_value-original_value)/original_value;
+p_diff = 100.0*(perturbed_value-original_value)/original_value;
 end %function
 
 function newdata_array=record_difference(ind,data_array,original_data,IG_file,pars,Kin,alt_sim,MKX,urine)
