@@ -130,6 +130,7 @@ for i = 1:2:length(varargin)
     else
         disp('WRONG VARARGIN INPUT')
         fprintf('What is this varargin input? %s \n', varargin{i})
+        error('wrong varargin input')
     end % if
 end %for
 

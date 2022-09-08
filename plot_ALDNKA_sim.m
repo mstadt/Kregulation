@@ -1,12 +1,11 @@
-function plot_FFins_sim(T,X,params,Kin_opts,labels,tf,MealInfo,days)
+function plot_ALDNKA_sim(T,X,params,Kin_opts,labels,tf,MealInfo,days)
 %close all
 t1 = T{1};
 t2 = T{2};
-t3 = T{3};
 
     % color options
 c1= [0.4940 0.1840 0.5560]; % purple [0.3010 0.7450 0.9330]; % blue 
-c2 = [0.4660 0.6740 0.1880]; %green[0.4940 0.1840 0.5560] ; % green %[0.6350 0.0780 0.1840]; % maroon[0.3010 0.7450 0.9330]; 
+c2 =[0.3010 0.7450 0.9330]; % blue %[0.4660 0.6740 0.1880]; %green[0.4940 0.1840 0.5560] ; % green %[0.6350 0.0780 0.1840]; % maroon[0.3010 0.7450 0.9330]; 
 c3 = [0.3010 0.7450 0.9330]; % blue
 c4 = [0.4660 0.6740 0.1880]; %green %[0.4940 0.1840 0.5560]; % purple
 lightGrey2   = [0.7 0.7 0.7];
@@ -15,7 +14,7 @@ lightGrey2   = [0.7 0.7 0.7];
 f.title = 16;
 f.xlabel = 12;
 f.ylabel = 12;
-f.legend = 12;
+f.legend = 14;
 f.ticks = 16;
 f.lab = 12;
 mark_size1 = 7;
@@ -28,8 +27,7 @@ m3 = 'd';
 m4 = 's';
 % linestyles
 ls1 = '-';
-ls2 = '-';
-ls3 = '-.';
+ls2 = ':';
 
 labx = 0.25;
 laby = 0.95;
@@ -58,18 +56,16 @@ s = subplot(3,2,3);
 varnum = 5;
 vals1 = X{1}(:,varnum);
 vals2 = X{2}(:,varnum);
-vals3 = X{3}(:,varnum);
 plot(s,t1/1440, vals1, 'linewidth', lw, 'color', c1, 'linestyle', ls1)
 hold on
 plot(s,t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
-plot(s,t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
 yline(3.5, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
 yline(5.0, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
 xlabel('time (days)', 'fontsize', f.xlabel)
 ylabel('mEq/L', 'fontsize', f.ylabel)
 title('Plasma [K^+] (K_{plasma})', 'fontsize', f.title)
 xlim([xmin, xmax])
-ylim([3.5,5.3])
+ylim([3.0,5.0])
 text(xmin + labx,gca().YLim(1) + laby*(gca().YLim(2) - gca().YLim(1)), '(c)', 'fontsize', f.lab)
 hold off
 
@@ -78,18 +74,16 @@ s = subplot(3,2,5);
 varnum = 8;
 vals1 = X{1}(:,varnum);
 vals2 = X{2}(:,varnum);
-vals3 = X{3}(:,varnum);
 plot(s,t1/1440, vals1, 'linewidth', lw, 'color', c1, 'linestyle', ls1)
 hold on
 plot(s,t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
-plot(s,t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
 yline(120, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
 yline(140, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
 xlabel('time (days)', 'fontsize', f.xlabel)
 ylabel('mEq/L', 'fontsize', f.ylabel)
 title('Intracellular [K^+] (K_{IC})', 'fontsize', f.title)
 xlim([xmin, xmax])
-ylim([120, 155])
+ylim([120, 140])
 text(xmin + labx,gca().YLim(1) + laby*(gca().YLim(2) - gca().YLim(1)), '(e)', 'fontsize', f.lab)
 hold off
 
@@ -98,11 +92,9 @@ s = subplot(3,2,2);
 varnum = 18;
 vals1 = X{1}(:,varnum);
 vals2 = X{2}(:,varnum);
-vals3 = X{3}(:,varnum);
 plot(s, t1/1440, vals1, 'linewidth', lw, 'color', c1, 'linestyle', ls1)
 hold on
 plot(s, t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
-plot(s,t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
 xlabel('time (days)', 'fontsize', f.xlabel)
 ylabel('mEq/min', 'fontsize', f.ylabel)
 title('DT K^+ secretion (\Phi_{dt-Ksec})', 'fontsize', f.title)
@@ -117,11 +109,9 @@ varnum1 = 23;
 varnum2 = 26;
 vals1 = X{1}(:,varnum1) - X{1}(:,varnum2);
 vals2 = X{2}(:,varnum1) - X{2}(:,varnum2);
-vals3 = X{3}(:,varnum1) - X{3}(:,varnum2);
 plot(s, t1/1440, vals1, 'linewidth', lw, 'color', c1, 'linestyle', ls1)
 hold on
 plot(s, t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
-plot(s,t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
 xlabel('time (days)', 'fontsize', f.xlabel)
 ylabel('mEq/min', 'fontsize', f.ylabel)
 title('CD K^+ transport (\Phi_{cd-Ksec} - \Phi_{cd-Kreab})', 'fontsize', f.title)
@@ -135,11 +125,9 @@ s = subplot(3,2,6);
 varnum = 28;
 vals1 = X{1}(:,varnum);
 vals2 = X{2}(:,varnum);
-vals3 = X{3}(:,varnum);
 plot(s, t1/1440, vals1, 'linewidth', lw, 'color', c1, 'linestyle', ls1)
 hold on
 plot(s, t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
-plot(s,t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
 xlabel('time (days)', 'fontsize', f.xlabel)
 ylabel('mEq/min', 'fontsize', f.ylabel)
 title('Urinary K^+ excretion (\Phi_{uK})', 'fontsize', f.title)
@@ -150,5 +138,5 @@ hold off
     
     
 
-legend(labels{1}, labels{2}, labels{3}, 'fontsize', f.legend)
+legend(labels{1}, labels{2}, 'fontsize', f.legend)
 end % plot_FF_sim
