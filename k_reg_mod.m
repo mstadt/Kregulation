@@ -81,7 +81,7 @@ MealInfo.t_breakfast = 7; % default breakfast is at 7 am
 MealInfo.t_lunch = 13; % default lunch is at 1 pm
 MealInfo.t_dinner = 19; % default dinner is at 7 pm
 MealInfo.K_amount = 35; % default K ingestions is 35mEq per meal
-MealInfo.meal_type = 'other';
+MealInfo.meal_type = 'normal';
 for i = 1:2:length(varargin)
     if strcmp(varargin{i}, 'SS')
         SS = varargin{i+1};

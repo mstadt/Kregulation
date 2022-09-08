@@ -5,8 +5,7 @@ pars = set_params();
 
 %heat map preparation
 xlabels = {'V_{max}','K_{m}','\Phi_{dtKsec}^{eq}','A_{dt-Ksec}','B_{dt-Ksec}','\Phi_{cd-Ksec}^{eq}','A_{cd-Ksec}','B_{cd-Ksec}','A_{cd-Kreab}','B_{cd-Kreab}', ...
-            '\Phi_{Kin}^{ss}', 'k_{gut}', 'V_{plasma}', 'V_{interstitial}', 'V_{muscle}', ...
-            'P_{muscle}', '\Phi_{filK}', 'C_{al}^{eq}', 'A_{insulin}', 'B_{insulin}', 'A_{Kin}'};
+            'P_{trans}', '\Phi_{filK}', 'C_{al}^{eq}'};
 ylabels = {'K_{plasma}','K_{IC}'};
 cdata = zeros(length(ylabels),length(xlabels));
 
@@ -100,37 +99,6 @@ disp(xlabels{index})
 pars.cdKreab_B=pars.cdKreab_B*(1.1); %add 10%
 cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
 
-
-pars = set_params();
-index = index + 1;
-disp(xlabels{index})
-pars.Phi_Kin_ss = pars.Phi_Kin_ss*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = index + 1;
-disp(xlabels{index})
-pars.kgut = pars.kgut*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = index+1;
-disp(xlabels{index})
-pars.V_plasma = pars.V_plasma*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = index + 1;
-disp(xlabels{index})
-pars.V_interstitial = pars.V_interstitial*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = index+1;
-disp(xlabels{index})
-pars.V_muscle = pars.V_muscle*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
 pars = set_params();
 index = index+1;
 disp(xlabels{index})
@@ -150,23 +118,6 @@ disp(xlabels{index})
 pars.ALD_eq = pars.ALD_eq*(1.1);
 cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
 
-pars = set_params();
-index = index + 1;
-disp(xlabels{index})
-pars.insulin_A = pars.insulin_A*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = index+1;
-disp(xlabels{index})
-pars.insulin_B = pars.insulin_B*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = index + 1;
-disp(xlabels{index})
-pars.FF = pars.FF*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
 
 
 
@@ -196,13 +147,13 @@ figure
 h = heatmap(xlabels,ylabels,cdata_h, ...
         'colormap', parula, ...
         'MissingDataColor', 'w', 'MissingDataLabel', '<0.5%;');
-h.FontSize = 16;
+h.FontSize = 14;
 
-figure
-h = heatmap(xlabels,ylabels,cdata_round, ...
-        'colormap', parula, ...
-        'MissingDataColor', 'w', 'MissingDataLabel', '<0.5%;');
-h.FontSize = 16;
+% figure
+% h = heatmap(xlabels,ylabels,cdata_round, ...
+%         'colormap', parula, ...
+%         'MissingDataColor', 'w', 'MissingDataLabel', '<0.5%;');
+% h.FontSize = 16;
 
 function p_diff = percent_difference(original_value,perturbed_value)
 p_diff = 100.0*(perturbed_value-original_value)/original_value;
