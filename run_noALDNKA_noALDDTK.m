@@ -4,7 +4,7 @@ close all;
 % IDEA: run for 1 day of 3 meals....
 %           or maybe a week of normal intake?
 
-days = 14; % number of days to run the simulation for
+days = 10; % number of days to run the simulation for
 %%%%%%%%%%%%%%%%%%
 % simulation 1
 % baseline model
