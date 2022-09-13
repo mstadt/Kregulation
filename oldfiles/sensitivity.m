@@ -4,9 +4,9 @@
 pars = set_params();
 
 %heat map preparation
-xvalues = {'V_{max}','K_{m}','Phi_{dtKsec eq}','A_{dtKsec}','B_{dtKsec}','Phi_{cdKsec eq}','A_{cdKsec}','B_{cdKsec}','A_{cdKreab}','B_{cdKreab}'};
-yvalues = {'K_{plasma}','K_{muscle}'};
-cdata = zeros(length(yvalues),length(xvalues));
+xlabels = {'V_{max}','K_{m}','\Phi_{dtKsec}^{eq}','A_{dt-Ksec}','B_{dt-Ksec}','\Phi_{cd-Ksec}^{eq}','A_{cd-Ksec}','B_{cd-Ksec}','A_{cd-Kreab}','B_{cd-Kreab}'};
+ylabels = {'K_{plasma}','K_{IC}'};
+cdata = zeros(length(ylabels),length(xlabels));
 
 Kin.Kin_type = 'gut_Kin3';
 Kin.Meal = 1;
@@ -92,14 +92,24 @@ pars = set_params();
 
 
 % round cdata values
-cdata_round =  round(cdata,3,"significant");
+cdata_round =  round(cdata,2,"significant");
+% set values less than 1% to NaN
+cdata_h = cdata_round;
+[r,c] = find(abs(cdata_h) <= 0.5);
+for ii = 1:length(r)
+   cdata_h(r(ii), c(ii)) = NaN;
+end
+%figure
+%h = heatmap(xvalues,yvalues,cdata);
+
 figure
-h = heatmap(xvalues,yvalues,cdata);
-figure
-h_round = heatmap(xvalues,yvalues,cdata_round);
+h = heatmap(xlabels,ylabels,cdata_h, ...
+        'colormap', parula, ...
+        'MissingDataColor', 'w', 'MissingDataLabel', '<0.5%;');
+h.FontSize = 16;
 
 function p_diff = percent_difference(original_value,perturbed_value)
-p_diff = (perturbed_value-original_value)/original_value;
+p_diff = 100.0*(perturbed_value-original_value)/original_value;
 end %function
 
 function newdata_array=record_difference(ind,data_array,original_data,IG_file,pars,Kin,alt_sim,MKX,urine)
