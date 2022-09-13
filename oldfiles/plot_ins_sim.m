@@ -33,7 +33,7 @@ labx = 0.25;
 laby = 0.95;
 % figure
 xmin = 0;
-xmax = 14;
+xmax = days;
 figure
 % Phi_Kin
 s = subplot(3,2,1);
@@ -58,7 +58,7 @@ vals1 = X{1}(:,varnum);
 vals2 = X{2}(:,varnum);
 plot(s,t1/1440, vals1, 'linewidth', lw, 'color', c1, 'linestyle', ls1)
 hold on
-plot(s,t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
+%plot(s,t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
 yline(3.5, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
 yline(5.0, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
 xlabel('time (days)', 'fontsize', f.xlabel)
