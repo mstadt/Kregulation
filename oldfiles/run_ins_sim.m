@@ -4,7 +4,7 @@ close all;
 % IDEA: run for 1 day of 3 meals....
 %           or maybe a week of normal intake?
 
-days = 50; % number of days to run the simulation for
+days = 14; % number of days to run the simulation for
 %%%%%%%%%%%%%%%%%%
 % simulation 1
 % baseline model
@@ -60,7 +60,7 @@ disp('sim 1 finished')
 
 %%%%%%%%%%%%%%%%%%
 % simulation 2
-% FF effect off
+% ins effect off
 %%%%%%%%%%%%%%%%%%
 disp('**sim 2**')
 pars2 = set_params();
@@ -75,8 +75,8 @@ MealInfo2.t_dinner = 19;
 MealInfo2.K_amount = 100/3; % how much K is ingested PER MEAL (3 times per day)
 MealInfo2.meal_type = 'normal'; % TO DO: change to a "normal" meal type
 
-do_ins2 = 1;
-do_FF2 = 0; % no FF effect
+do_ins2 = 0;
+do_FF2 = 1; % no FF effect
 
 % sim 2 SS condition
 
@@ -129,7 +129,7 @@ if do_plt
     X{1} = X1;
     X{2} = X2;
     labels{1} = 'baseline model';
-    labels{2} = 'no GI feedforward effect';
-    plot_FF_sim(T,X,params,Kin_opts,labels,tf,MealInfo,days)
+    labels{2} = 'no insulin effect';
+    plot_ins_sim(T,X,params,Kin_opts,labels,tf,MealInfo,days)
 end
 

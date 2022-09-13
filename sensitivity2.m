@@ -4,8 +4,7 @@
 pars = set_params();
 
 %heat map preparation
-xlabels = {'V_{max}','K_{m}','\Phi_{dtKsec}^{eq}','A_{dt-Ksec}','B_{dt-Ksec}','\Phi_{cd-Ksec}^{eq}','A_{cd-Ksec}','B_{cd-Ksec}','A_{cd-Kreab}','B_{cd-Kreab}', ...
-            'P_{trans}', '\Phi_{filK}', 'C_{al}^{eq}'};
+xlabels = {'V_{max}','K_{m}', 'P_{trans}', '\Phi_{filK}', '\Phi_{dtKsec}^{eq}', 'A_{dt-Ksec}','B_{dt-Ksec}','\Phi_{cd-Ksec}^{eq}','A_{cd-Ksec}','B_{cd-Ksec}','A_{cd-Kreab}'};
 ylabels = {'K_{plasma}','K_{IC}'};
 cdata = zeros(length(ylabels),length(xlabels));
 
@@ -46,77 +45,73 @@ pars.Vmax=pars.Vmax*(1.1); %add 10%
 cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
 
 pars = set_params();
-index = 2; %index + 1;
+index = index + 1;
 disp(xlabels{index})
 pars.Km=pars.Km*(1.1); %add 10%
 cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
 
 pars = set_params();
-index = 3; %index + 1;
-disp(xlabels{index})
-pars.Phi_dtKsec_eq=pars.Phi_dtKsec_eq*(1.1); %add 10%
-cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = 4; %index + 1;
-disp(xlabels{index})
-pars.dtKsec_A=pars.dtKsec_A*(1.1); %add 10%
-cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = 5; %index + 1;
-disp(xlabels{index})
-pars.dtKsec_B=pars.dtKsec_B*(1.1); %add 10%
-cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = 6; %index + 1;
-disp(xlabels{index})
-pars.Phi_cdKsec_eq=pars.Phi_cdKsec_eq*(1.1); %add 10%
-cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = 7; %index + 1;
-disp(xlabels{index})
-pars.cdKsec_A=pars.cdKsec_A*(1.1); %add 10%
-cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = 8; %index + 1;
-disp(xlabels{index})
-pars.cdKsec_B=pars.cdKsec_B*(1.1); %add 10%
-cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = 9; %index + 1;
-disp(xlabels{index})
-pars.cdKreab_A=pars.cdKreab_A*(1.1); %add 10%
-cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
-index = 10; %index + 1;
-disp(xlabels{index})
-pars.cdKreab_B=pars.cdKreab_B*(1.1); %add 10%
-cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
-
-pars = set_params();
 index = index+1;
 disp(xlabels{index})
-pars.P_muscle = pars.P_muscle*(1.1);
+pars.P_muscle = pars.P_muscle*(1.1); % P_trans
 cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
 
 pars = set_params();
 index = index+1;
 disp(xlabels{index})
-pars.GFR = pars.GFR*(1.1);
+pars.GFR = pars.GFR*(1.1); % Phi_filK
 cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
 
 
 pars = set_params();
 index = index + 1;
 disp(xlabels{index})
-pars.ALD_eq = pars.ALD_eq*(1.1);
-cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
+pars.Phi_dtKsec_eq=pars.Phi_dtKsec_eq*(1.1); %add 10%
+cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
+
+
+pars = set_params();
+index = index + 1;
+disp(xlabels{index})
+pars.dtKsec_A=pars.dtKsec_A*(1.1); %add 10%
+cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
+
+pars = set_params();
+index = index + 1;
+disp(xlabels{index})
+pars.dtKsec_B=pars.dtKsec_B*(1.1); %add 10%
+cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
+
+pars = set_params();
+index = index + 1;
+disp(xlabels{index})
+pars.Phi_cdKsec_eq=pars.Phi_cdKsec_eq*(1.1); %add 10%
+cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
+
+pars = set_params();
+index = index + 1;
+disp(xlabels{index})
+pars.cdKsec_A=pars.cdKsec_A*(1.1); %add 10%
+cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
+
+pars = set_params();
+index = index + 1;
+disp(xlabels{index})
+pars.cdKsec_B=pars.cdKsec_B*(1.1); %add 10%
+cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
+
+pars = set_params();
+index = index + 1;
+disp(xlabels{index})
+pars.cdKreab_A=pars.cdKreab_A*(1.1); %add 10%
+cdata=record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
+
+
+% pars = set_params();
+% index = index + 1;
+% disp(xlabels{index})
+% pars.ALD_eq = pars.ALD_eq*(1.1);
+% cdata = record_difference(index,cdata,SSdata,IG_file,pars,Kin,alt_sim,MKX,urine);
 
 
 

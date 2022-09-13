@@ -12,23 +12,23 @@ do_ins1 = 1;
 do_ALD_NKA1 = 1;
 do_ALD_sec1 = 1;
 % sim 2 options
-label2 = 'no GI FF';
+label2 = 'only GI FF off';
 do_ins2 = 1;
 do_FF2 = 0; % 
 do_ALD_NKA2 = 1; % ALD effect on NKATPase
 do_ALD_sec2 = 1; % ALD effect on DT K sec
 % sim 3 options
-label3 = 'no ALD NKA';
+label3 = 'only ALD NKA off';
 do_ins3 = 1; % no insulin effect
 do_FF3 = 1; % no FF effect
 do_ALD_NKA3 = 0; % ALD effect on NKATPase
 do_ALD_sec3 = 1; % ALD effect on DT K sec
 % sim 4 options
-label4 = 'all off';
+label4 = 'only insulin off';
 do_ins4 = 0; % no insulin effect
-do_FF4 = 0; %  FF effect
-do_ALD_NKA4 = 0; % ALD effect on NKATPase
-do_ALD_sec4 = 0; % ALD effect on DT K sec
+do_FF4 = 1; %  FF effect
+do_ALD_NKA4 = 1; % ALD effect on NKATPase
+do_ALD_sec4 = 1; % ALD effect on DT K sec
 %%%% end user input %%%%%%%%
 
 %%%%%%%%%%%%%%%%%%

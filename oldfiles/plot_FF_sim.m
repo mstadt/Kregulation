@@ -33,7 +33,7 @@ labx = 0.25;
 laby = 0.95;
 % figure
 xmin = 0;
-xmax = 14;
+xmax = days;
 figure
 % Phi_Kin
 s = subplot(3,2,1);
