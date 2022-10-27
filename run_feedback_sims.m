@@ -1,6 +1,5 @@
 % run simulation experiements with and without FF effect
 clear all;
-%close all;
 %%%%    Begin User Input %%%%%%%
 days = 10; % number of days to run the simulation for
 % sim 1 options
@@ -11,25 +10,25 @@ do_ALD_NKA1 = 1;
 do_ALD_sec1 = 1;
 sim1 = [do_FF1, do_ins1, do_ALD_NKA1, do_ALD_sec1];
 % sim 2 options
-label2 = 'only GI FF off';
-do_ins2 = 1;
+label2 = 'only ALD NKA on';
+do_ins2 = 0;
 do_FF2 = 0; % 
 do_ALD_NKA2 = 1; % ALD effect on NKATPase
-do_ALD_sec2 = 1; % ALD effect on DT K sec
+do_ALD_sec2 = 0; % ALD effect on DT K sec
 sim2 = [do_FF2, do_ins2, do_ALD_NKA2, do_ALD_sec2];
 % sim 3 options
-label3 = 'only ALD NKA off';
-do_ins3 = 1; % no insulin effect
+label3 = 'only GI FF on';
+do_ins3 = 0; % no insulin effect
 do_FF3 = 1; % no FF effect
 do_ALD_NKA3 = 0; % ALD effect on NKATPase
-do_ALD_sec3 = 1; % ALD effect on DT K sec
+do_ALD_sec3 = 0; % ALD effect on DT K sec
 sim3 = [do_FF3, do_ins3, do_ALD_NKA3, do_ALD_sec3];
 % sim 4 options
-label4 = 'only insulin off';
-do_ins4 = 0; % no insulin effect
-do_FF4 = 1; %  FF effect
-do_ALD_NKA4 = 1; % ALD effect on NKATPase
-do_ALD_sec4 = 1; % ALD effect on DT K sec
+label4 = 'only insulin on';
+do_ins4 = 1; % insulin effect
+do_FF4 = 0; %  FF effect
+do_ALD_NKA4 = 0; % ALD effect on NKATPase
+do_ALD_sec4 = 0; % ALD effect on DT K sec
 sim4 = [do_FF4, do_ins4, do_ALD_NKA4, do_ALD_sec4];
 % sim 5 options
 label5 = 'all feedbacks off';

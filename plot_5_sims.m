@@ -324,7 +324,7 @@ if plt_Kconc_plasIC_with_intake
     ylabel('mEq/L', 'fontsize', f.ylabel)
     title('Intracellular [K^+] (K_{IC})', 'fontsize', f.title)
     xlim([xmin, xmax])
-    ylim([123, 150])
+    ylim([125, 150])
     text(xmin + labx,gca().YLim(1) + laby*(gca().YLim(2) - gca().YLim(1)), '(c)', 'fontsize', f.lab)
     hold off
 
