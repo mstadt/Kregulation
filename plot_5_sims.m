@@ -2,9 +2,9 @@ function plot_5_sims(T,X,pars,Kin,labels,MealInfo,days)
 % plots to do
 plt_6_panels = 0;
 plt_Kconc_plas_IC = 0;
-plt_Kconc_plasIC_with_intake = 0;
-plt_onlyKIC = 1;
-plt_onlyKplas = 1;
+plt_Kconc_plasIC_with_intake = 1;
+plt_onlyKIC = 0;
+plt_onlyKplas = 0;
 
 %close all
 t1 = T{1};
@@ -17,8 +17,8 @@ t5 = T{5};
 c1= [0.4940 0.1840 0.5560]; % purple [0.3010 0.7450 0.9330]; % blue 
 c2 = [0.4660 0.6740 0.1880]; %green[0.4940 0.1840 0.5560] ; % green %[0.6350 0.0780 0.1840]; % maroon[0.3010 0.7450 0.9330]; 
 c3 = [0.3010 0.7450 0.9330]; % blue
-c4 = [0.9290 0.6940 0.1250]; % yellow %[0.8500 0.3250 0.0980]; % orange %[0.6350 0.0780 0.1840]; % maroon %green %[0.4940 0.1840 0.5560]; % purple
-c5 = [0.6350 0.0780 0.1840]; % maroon
+c4 = [1.0 0.7 0.1250]; %[0.9290 0.6940 0.1250]; % yellow %[0.8500 0.3250 0.0980]; % orange %[0.6350 0.0780 0.1840]; % maroon %green %[0.4940 0.1840 0.5560]; % purple
+c5 = [1.0 0.2 1.0];%'red'; %[0.6350 0.0780 0.1840]; % maroon
 lightGrey2   = [0.7 0.7 0.7];
 
 % fontsizes

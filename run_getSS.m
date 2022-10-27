@@ -2,6 +2,7 @@
 
 %% Begin user input
 pars = set_params();
+pars.Vmax = pars.Vmax*1.1;
 
 Kin.Kin_type = 'gut_Kin3';
 Kin.Meal = 1;
