@@ -3,8 +3,8 @@ function plot_5_sims(T,X,pars,Kin,labels,MealInfo,days)
 plt_6_panels = 0;
 plt_Kconc_plas_IC = 0;
 plt_Kconc_plasIC_with_intake = 1;
-plt_onlyKIC = 0;
-plt_onlyKplas = 0;
+plt_onlyKIC = 1;
+plt_onlyKplas = 1;
 
 %close all
 t1 = T{1};
@@ -343,9 +343,9 @@ vals4 = X{4}(:,varnum);
 vals5 = X{5}(:,varnum);
 plot(t1/1440, vals1, 'linewidth', lw, 'color', c1, 'linestyle', ls1)
 hold on
- %plot(t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
- %plot(t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
-%plot(t4/1440, vals4, 'linewidth', lw, 'color', c4, 'linestyle', ls4)
+plot(t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
+plot(t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
+plot(t4/1440, vals4, 'linewidth', lw, 'color', c4, 'linestyle', ls4)
 plot(t5/1440, vals5, 'linewidth', lw, 'color', c5, 'linestyle', ls5)
 yline(120, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
 yline(140, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
@@ -353,7 +353,7 @@ xlabel('time (days)', 'fontsize', f.xlabel)
 ylabel('mEq/L', 'fontsize', f.ylabel)
 title('Intracellular [K^+] (K_{IC})', 'fontsize', f.title)
 xlim([xmin, xmax])
-ylim([123, 150])
+ylim([125,135])
 legend(labels{1}, labels{2}, labels{3}, labels{4}, labels{5}, 'fontsize', f.legend)
 hold off
 end
@@ -368,17 +368,17 @@ if plt_onlyKplas
     vals5 = X{5}(:,varnum);
     plot(t1/1440, vals1, 'linewidth', lw, 'color', c1, 'linestyle', ls1)
     hold on
-     %plot(t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
-     %plot(t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
-     %plot(t4/1440, vals4, 'linewidth', lw, 'color', c4, 'linestyle', ls4)
-     plot(t5/1440, vals5, 'linewidth', lw, 'color', c5, 'linestyle', ls5)
+    plot(t2/1440, vals2, 'linewidth', lw, 'color', c2, 'linestyle', ls2)
+    plot(t3/1440, vals3, 'linewidth', lw, 'color', c3, 'linestyle', ls3)
+    plot(t4/1440, vals4, 'linewidth', lw, 'color', c4, 'linestyle', ls4)
+    plot(t5/1440, vals5, 'linewidth', lw, 'color', c5, 'linestyle', ls5)
     yline(3.5, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
     yline(5.0, 'linewidth', 1.5, 'color', lightGrey2, 'linestyle', '-')
     xlabel('time (days)', 'fontsize', f.xlabel)
     ylabel('mEq/L', 'fontsize', f.ylabel)
     title('Plasma [K^+] (K_{plasma})', 'fontsize', f.title)
     xlim([xmin, xmax])
-    ylim([3.0,6.5])
+    ylim([3.5,5.0])
     legend(labels{1}, labels{2}, labels{3}, labels{4}, labels{5}, 'fontsize', f.legend)
     hold off
 
