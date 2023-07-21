@@ -1,6 +1,8 @@
 # K Regulation
 
-Code files for K+ homeostasis regulation model.
+Code files for K+ homeostasis regulation model. Please cite [Stadt et al. 2022](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010607) when using.
+
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=mstadt/KRegulation)
 
 ## Key files
 
